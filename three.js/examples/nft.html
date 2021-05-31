@@ -154,7 +154,7 @@
         // init controls for camera
         var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
             type : 'nft',
-            descriptorsUrl : 'data/dataNFT/pinball',
+            descriptorsUrl : 'data/dataNFT/marker',
             changeMatrixMode: 'cameraTransformMatrix'
         })
 
@@ -170,15 +170,16 @@
         var threeGLTFLoader = new THREE.GLTFLoader();
         var model;
 
-        threeGLTFLoader.load("./resources/Flamingo.glb", function (gltf) {
+        threeGLTFLoader.load("./resources/Speeder_for_dev.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.name = 'Flamingo';
+            model.scale.set(10,10,10);
 
-            var animation = gltf.animations[0];
+            /* var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             var action = mixer.clipAction(animation);
-            action.play();
+            action.play(); */
 
             root.matrixAutoUpdate = false;
             root.add(model);
@@ -187,6 +188,8 @@
             model.position.x = 70;
             model.position.y = 10;
 
+            
+
 
             //////////////////////////////////////////////////////////////////////////////////
             //		render the whole thing on the page
@@ -194,6 +197,9 @@
 
             var animate = function() {
                 requestAnimationFrame(animate);
+                model.rotation.y += 0.03;
+                //model.rotation.x += 0.02;
+
 
                 if (mixers.length > 0) {
                     for (var i = 0; i < mixers.length; i++) {
