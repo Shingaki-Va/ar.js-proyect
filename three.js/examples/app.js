@@ -103,7 +103,7 @@ arToolkitContext.init(function onCompleted(){
 // init controls for camera
 var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
     type : 'nft',
-    descriptorsUrl : 'data/dataNFT/marker',
+    descriptorsUrl : 'data/dataNFT/comics',
     changeMatrixMode: 'cameraTransformMatrix'
 })
 
@@ -122,7 +122,7 @@ var model;
 threeGLTFLoader.load("./resources/flower.glb", function (gltf) {
     model = gltf.scene.children[0];
     model.name = 'Flamingo';
-    model.scale.set(50,50,50);
+    model.scale.set(20,20,20);
 
     /* var animation = gltf.animations[0];
     var mixer = new THREE.AnimationMixer(model);
@@ -133,11 +133,11 @@ threeGLTFLoader.load("./resources/flower.glb", function (gltf) {
     root.matrixAutoUpdate = false;
     root.add(model);
 
-    model.position.z = -350;
-    model.position.x = 20;
-    model.position.y = 500;
-    model.rotation.z = 5;
-    model.rotation.y = -5;
+    model.position.z = -100;
+    model.position.x = 110;
+    model.position.y = 100;
+  //  model.rotation.z = 5;
+   // model.rotation.y = -5;
 
     
 
